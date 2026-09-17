@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tab Organizer</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    width: 320px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 12px;
+    background: #1e1f24;
+    color: #eaeaea;
+  }
+  h1 {
+    font-size: 15px;
+    margin: 0 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .count {
+    font-size: 28px;
+    font-weight: 700;
+    color: #7dd3fc;
+  }
+  .sub {
+    font-size: 11px;
+    color: #9aa0a6;
+    margin-bottom: 10px;
+  }
+  .actions {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+  button {
+    flex: 1;
+    background: #2b2d34;
+    color: #eaeaea;
+    border: 1px solid #3c3f47;
+    border-radius: 6px;
+    padding: 7px 6px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  button:hover { background: #35373f; }
+  button:disabled { opacity: 0.5; cursor: default; }
+  .domain-list {
+    max-height: 260px;
+    overflow-y: auto;
+  }
+  .domain-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 4px;
+    border-bottom: 1px solid #2b2d34;
+    font-size: 12.5px;
+  }
+  .domain-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+  }
+  .domain-badge {
+    background: #2b2d34;
+    border-radius: 10px;
+    padding: 1px 8px;
+    font-size: 11px;
+    color: #9aa0a6;
+    margin-left: 6px;
+  }
+  .empty {
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    padding: 20px 0;
+  }
+  .status {
+    font-size: 11px;
+    color: #7dd3fc;
+    min-height: 14px;
+    margin-top: 6px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <h1>Tab Organizer <span class="count" id="tabCount">0</span></h1>
+  <div class="sub" id="subLine">across 0 windows</div>
+
+  <div class="actions">
+    <button id="closeDupes">Close duplicates</button>
+    <button id="groupByDomain">Group by site</button>
+  </div>
+
+  <div class="domain-list" id="domainList"></div>
+  <div class="status" id="status"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

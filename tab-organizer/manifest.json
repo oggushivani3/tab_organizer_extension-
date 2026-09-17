@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Counter & Organizer",
+  "version": "1.0",
+  "description": "Counts your open tabs, breaks them down by site, and helps you close duplicates or group by domain.",
+  "permissions": ["tabs", "tabGroups"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
